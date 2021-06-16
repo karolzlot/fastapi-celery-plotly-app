@@ -3,10 +3,13 @@
 def db_init():
     import pandas as pd
     from .database import engine
+    from .enum import StudentCategoryEnum
+
 
     columns_types={
     'DBN'                    : 'str', 
     'School_Name'            : 'str', 
+    # 'Category'               : 'str', 
     'Category'               : 'str', 
     'Year'                   : 'str', 
     'Total_Enrollment'       : 'Int64', 
@@ -99,6 +102,10 @@ def db_init():
     ]
 
     df = pd.read_csv('https://data.cityofnewyork.us/api/views/7yc5-fec2/rows.csv?accessType=DOWNLOAD',header=0,dtype=columns_types,names=columns_names,na_values=['s','No Data',' '], usecols=columns_to_keep)
+    
+    df['Category'] = df['Category'].apply(lambda x: StudentCategoryEnum(x))
+    
+    
     df["District"] = df['DBN'].str[0:2].astype(int)
 
     df = df.dropna(subset = ['Female_pct','Male_pct','Total_Enrollment']) # cleaning rows with incomplete data
