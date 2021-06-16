@@ -1,0 +1,22 @@
+.venv/
+.venv_win/
+.ipynb_checkpoints/
+.vscode/
+tmp/
+
+requirements_dev.txt
+
+# python cache
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+*.ipynb
+
+# virtual env
+/.venv/
+create_venv.sh
+windows_create_venv.cmd
+
+.env.dev

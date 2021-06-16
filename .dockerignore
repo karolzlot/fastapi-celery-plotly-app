@@ -1,0 +1,25 @@
+.venv/
+.venv_win/
+.vscode/
+.ipynb_checkpoints/
+.git/
+tmp/
+
+requirements_dev.txt
+
+Dockerfile
+Dockerfile_celery
+README.md
+
+*.ipynb
+
+# python cache
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+# virtual env
+/.venv/
+create_venv.sh
+windows_create_venv.cmd
