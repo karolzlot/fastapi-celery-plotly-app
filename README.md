@@ -80,10 +80,10 @@ I already changed part of Pydantic `schema`. However when I tried to change SQLA
 You can see my attempt in branch `switch_type_to_enum`
 3. Separate `requirements.txt` for `app` and `celery` microservices.
 4. Remove duplicating env vars from .env.dev file 
-5. Allow to choose type of exam between MATH and ELA. Currently MATH is hardcoded.
+5. Allow to choose type of exam between MATH and ELA. Currently MATH exam is hardcoded.
 6. Add simple html form interface to choose filters easier (to speed up debugging).
-7. Allow to choose result format also as HTML.
-8. Change graph to use `mapbox` to have nicer background and colors.
+7. Allow to choose chart file format also as HTML.
+8. Change plotly chart to use `mapbox` to have nicer background and colors.
 
 
 
