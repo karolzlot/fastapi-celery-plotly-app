@@ -23,3 +23,6 @@ __pycache__
 /.venv/
 create_venv.sh
 windows_create_venv.cmd
+
+.env.dev
+.env
