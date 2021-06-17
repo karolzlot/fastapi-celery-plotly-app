@@ -86,18 +86,18 @@ def test_rest2_all_filters(http_service):
     status2 = 200
     data = {
         "category": "Students with Disabilities",
-        "female_pct_more_than": 0.01,
-        "female_pct_less_than": 0.99,
-        "male_pct_more_than": 0.01,
-        "male_pct_less_than": 0.99,
-        "black_pct_more_than": 0.01,
-        "black_pct_less_than": 0.99,
-        "asian_pct_more_than": 0.01,
-        "asian_pct_less_than": 0.99,
-        "white_pct_more_than": 0.01,
-        "white_pct_less_than": 0.99,
-        "other_pct_more_than": 0.01,
-        "other_pct_less_than": 0.99
+        "female_pct_at_least": 0.01,
+        "female_pct_at_most": 0.99,
+        "male_pct_at_least": 0.01,
+        "male_pct_at_most": 0.99,
+        "black_pct_at_least": 0.01,
+        "black_pct_at_most": 0.99,
+        "asian_pct_at_least": 0.01,
+        "asian_pct_at_most": 0.99,
+        "white_pct_at_least": 0.01,
+        "white_pct_at_most": 0.99,
+        "other_pct_at_least": 0.01,
+        "other_pct_at_most": 0.99
         }
     response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
 
@@ -117,8 +117,8 @@ def test_rest3_empty_response(http_service):
     status = 200
     data = {
         "category": "Attend school outside district of residence",
-        "other_pct_more_than": 0.55,
-        "other_pct_less_than": 0.45
+        "other_pct_at_least": 0.55,
+        "other_pct_at_most": 0.45
         }
 
     response = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
@@ -137,18 +137,18 @@ def test_rest4_all_zeros(http_service):
     status = 200
     data = {
         "category": "All Students",
-        "female_pct_more_than": 0,
-        "female_pct_less_than": 0,
-        "male_pct_more_than": 0,
-        "male_pct_less_than": 0,
-        "black_pct_more_than": 0,
-        "black_pct_less_than": 0,
-        "asian_pct_more_than": 0,
-        "asian_pct_less_than": 0,
-        "white_pct_more_than": 0,
-        "white_pct_less_than": 0,
-        "other_pct_more_than": 0,
-        "other_pct_less_than": 0
+        "female_pct_at_least": 0,
+        "female_pct_at_most": 0,
+        "male_pct_at_least": 0,
+        "male_pct_at_most": 0,
+        "black_pct_at_least": 0,
+        "black_pct_at_most": 0,
+        "asian_pct_at_least": 0,
+        "asian_pct_at_most": 0,
+        "white_pct_at_least": 0,
+        "white_pct_at_most": 0,
+        "other_pct_at_least": 0,
+        "other_pct_at_most": 0
         }
 
     response = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
