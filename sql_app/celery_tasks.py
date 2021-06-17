@@ -72,9 +72,9 @@ def save_chart(filters_dict,id):
                                 locations="District",
                                 featureidkey="properties.school_dist",
                                 color="MATH_indicator",
-                                color_continuous_scale="viridis",
+                                color_continuous_scale="cividis",
                                 title="indicator is calculated per all exam participating students in each school district (after filters are applied)<br>(MATH_Level_1 + MATH_Level_2 * 2 +MATH_L3_and_L4 * 3 ) /<br> (MATH_Level_1 + MATH_Level_2 + MATH_L3_and_L4)",
-                                hover_name="District"
+                                range_color=[1.0,3.0],
                                 )
 
         fig.update_geos(fitbounds='locations')  # zoom on NYC
