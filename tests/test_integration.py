@@ -40,7 +40,6 @@ def http_service(docker_ip, docker_services):
 def test_status_code_docs(http_service):
     status = 200
     response = requests.get(http_service + "/docs/")
-    print(response.status_code)
     assert response.status_code == status
 
 
@@ -99,7 +98,7 @@ def test_rest2_all_filters(http_service):
         "other_pct_more_than": 0.01,
         "other_pct_less_than": 0.99
         }
-    response2 = requests.post(http_service + "/schools/",data=data) 
+    response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
 
     status3 = 200
     for i in range(100): # wait up to 10s for chart to be ready
