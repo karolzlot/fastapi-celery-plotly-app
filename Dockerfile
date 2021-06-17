@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED True
 # Set the working directory to /app
 WORKDIR /app
 
-RUN pip install FastAPI gunicorn uvicorn --no-cache-dir
+RUN pip install FastAPI uvicorn --no-cache-dir
 
 # copy the requirements file used for dependencies
 COPY requirements.txt .
@@ -22,5 +22,5 @@ COPY ./sql_app /app/sql_app
 EXPOSE 80
 
 # Run the web service on container startup.
-CMD gunicorn sql_app.main:app -b 0.0.0.0:80 -k uvicorn.workers.UvicornWorker --workers 4
+CMD uvicorn sql_app.main:app --host 0.0.0.0 --port 80
 
