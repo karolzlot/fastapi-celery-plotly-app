@@ -15,19 +15,19 @@ class StudentCategoryEnum(str, Enum):
 
 
 class SchoolsStatsQuerySchema(BaseModel):
-    category: Optional[StudentCategoryEnum]=StudentCategoryEnum.all
-    female_pct_more_than: Optional[float]
-    female_pct_less_than: Optional[float]
-    male_pct_more_than: Optional[float]
-    male_pct_less_than: Optional[float]
-    black_pct_more_than: Optional[float]
-    black_pct_less_than: Optional[float]
-    asian_pct_more_than: Optional[float]
-    asian_pct_less_than: Optional[float]
-    white_pct_more_than: Optional[float]
-    white_pct_less_than: Optional[float]
-    other_pct_more_than: Optional[float]
-    other_pct_less_than: Optional[float]
+    category: StudentCategoryEnum=StudentCategoryEnum.all
+    female_pct_more_than: Optional[float]=0.0
+    female_pct_less_than: Optional[float]=1.0
+    male_pct_more_than: Optional[float]=0.0
+    male_pct_less_than: Optional[float]=1.0
+    black_pct_more_than: Optional[float]=0.0
+    black_pct_less_than: Optional[float]=1.0
+    asian_pct_more_than: Optional[float]=0.0
+    asian_pct_less_than: Optional[float]=1.0
+    white_pct_more_than: Optional[float]=0.0
+    white_pct_less_than: Optional[float]=1.0
+    other_pct_more_than: Optional[float]=0.0
+    other_pct_less_than: Optional[float]=1.0
 
     class Config:
         orm_mode = True
