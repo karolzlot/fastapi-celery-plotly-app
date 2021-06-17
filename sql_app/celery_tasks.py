@@ -32,6 +32,7 @@ def save_chart(filters_dict,id):
         query = db.query(models.SchoolsStatsEntry).filter(*filters_objects)
         df = pd.read_sql(query.statement, query.session.bind)
 
+        # exam indicator calculation
         df2 = df.groupby(['District'])[['MATH_Level_1', 'MATH_Level_2', 'MATH_L3_and_L4']].sum().reset_index()
         df2['MATH_indicator']=(df2['MATH_Level_1']+df2['MATH_Level_2']*2+df2['MATH_L3_and_L4']*3)/(df2['MATH_Level_1']+df2['MATH_Level_2']+df2['MATH_L3_and_L4'])
         df2['MATH_indicator_label'] = df2['MATH_indicator'].apply('<b>{:,.2f}</b>'.format)
@@ -48,7 +49,7 @@ def save_chart(filters_dict,id):
 
 
         # more beautiful chart, but without labels so far
-
+        #
         # # call Plotly Express choropleth function to visualize data
         # fig = px.choropleth_mapbox(df2,
         #                         geojson=nycmap,
@@ -101,9 +102,4 @@ def save_chart(filters_dict,id):
         
         q = db.query(models.Chart).filter(models.Chart.id==id).one().path=path
         db.commit()
-
-
-
-
-    pass
 
