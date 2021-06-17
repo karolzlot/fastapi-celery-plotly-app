@@ -18,8 +18,8 @@ def get_db():
 
 
 
-@app.post("/schools/", response_model=schemas.SchoolsStatsResponse)
-def get_schools_entries(filters: schemas.SchoolsStatsQuerySchema, db: Session = Depends(get_db)):
+@app.post("/school_entries/", response_model=schemas.SchoolsStatsResponse)
+def get_schools_entries_and_create_chart(filters: schemas.SchoolsStatsQuerySchema, db: Session = Depends(get_db)):
 
     items = crud.get_schools(db,filters)
 
@@ -35,7 +35,7 @@ def get_schools_entries(filters: schemas.SchoolsStatsQuerySchema, db: Session = 
 
 
 @app.get("/charts/{chart_id}")
-def get_chart(chart_id: int, db: Session = Depends(get_db)):
+def get_chart_by_id(chart_id: int, db: Session = Depends(get_db)):
     chart = crud.get_chart(db, chart_id=chart_id)
 
     try:

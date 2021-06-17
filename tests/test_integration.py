@@ -58,7 +58,7 @@ def test_rest1_all_students(http_service):
         "category": "All Students"
         }
 
-    response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
+    response2 = requests.post(http_service + "/school_entries/",data=json.dumps(data), headers=headers) 
 
     number_of_entries= len(response2.json()["SchoolsStatsEntries"])
     chart_url=response2.json()["url"]
@@ -102,7 +102,7 @@ def test_rest2_all_filters(http_service):
         "other_pct_at_least": 0.01,
         "other_pct_at_most": 0.99
         }
-    response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
+    response2 = requests.post(http_service + "/school_entries/",data=json.dumps(data), headers=headers) 
 
     number_of_entries= len(response2.json()["SchoolsStatsEntries"])
     chart_url=response2.json()["url"]
@@ -129,7 +129,7 @@ def test_rest3_empty_response(http_service):
         "other_pct_at_most": 0.45
         }
 
-    response = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
+    response = requests.post(http_service + "/school_entries/",data=json.dumps(data), headers=headers) 
 
     expected_response={
         "url": "",
@@ -159,7 +159,7 @@ def test_rest4_all_zeros(http_service):
         "other_pct_at_most": 0
         }
 
-    response = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
+    response = requests.post(http_service + "/school_entries/",data=json.dumps(data), headers=headers) 
 
     expected_response={
         "url": "",
