@@ -2,6 +2,7 @@
 
 def db_init():
     import pandas as pd
+
     from .database import engine
 
     columns_types={

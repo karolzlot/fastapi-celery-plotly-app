@@ -1,9 +1,6 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, BigInteger, Text, Float
-from sqlalchemy.orm import relationship
-
+from sqlalchemy import BigInteger, Column, Float, ForeignKey, Integer, Text
 
 from .database import Base
-
 
 
 class SchoolsStatsEntry(Base):

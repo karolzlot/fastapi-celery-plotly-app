@@ -1,11 +1,10 @@
 from .celery import app
-from celery.signals import worker_ready
 
 
 @app.task
 def db_init():
     from . import models
-    from .database import SessionLocal, engine
+    from .database import engine
 
     with engine.connect() as connection:
         if not engine.dialect.has_table(connection, 'schools_stats_entries') or not engine.dialect.has_table(connection, 'charts'):  # If table don't exist, Create.
@@ -16,8 +15,9 @@ def db_init():
 
 @app.task
 def save_chart(filters_dict,id):
-    from . import models, schemas
     import pandas as pd
+
+    from . import models, schemas
 
     filters = schemas.SchoolsStatsQuerySchema.parse_obj(filters_dict)
 
@@ -37,6 +37,7 @@ def save_chart(filters_dict,id):
         df2['MATH_indicator_label'] = df2['MATH_indicator'].apply('<b>{:,.2f}</b>'.format)
 
         import json
+
         import plotly.express as px
 
         # read the neighborhood population data into a DataFrame and load the GeoJSON data

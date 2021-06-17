@@ -1,12 +1,7 @@
-from sqlalchemy import create_engine
-
-from sqlalchemy.ext.declarative import declarative_base
-
-from sqlalchemy.orm import sessionmaker
-
 from decouple import config
-
-
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://{config('DB_USER')}:{config('DB_PASS')}@{config('DB_HOST')}/{config('DB_NAME')}"
 

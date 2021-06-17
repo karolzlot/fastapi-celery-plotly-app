@@ -1,13 +1,10 @@
-from typing import List
-
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
-from . import crud, models, schemas
-from .database import SessionLocal, engine
-
+from . import crud, schemas
 from .celery_tasks import db_init, save_chart
+from .database import SessionLocal
 
 db_init.delay()
 

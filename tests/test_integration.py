@@ -1,13 +1,10 @@
-import pytest
-import requests
 import json
-
-from requests.exceptions import ConnectionError
-
+import os
 from time import sleep
 
-import os
 import pytest
+import requests
+from requests.exceptions import ConnectionError
 
 headers = {'accept': 'application/json',
         'Content-Type': 'application/json'}
