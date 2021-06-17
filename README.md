@@ -63,7 +63,7 @@ python -m venv .venv --prompt coding-challenge
 .\.venv\Scripts\python -m pip install -U pip
 .\.venv\Scripts\python -m pip install -U wheel
 .\.venv\Scripts\pip install -r requirements.txt
-.\.venv\Scripts\pip install pytest pytest-docker
+.\.venv\Scripts\pip install pytest pytest-docker requests
 source .venv/bin/activate
 ````
 2. Run 
