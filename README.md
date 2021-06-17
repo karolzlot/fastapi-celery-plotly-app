@@ -41,18 +41,18 @@ Client doesn't need to send any of them, if not sent app will use default values
 ```
 {
   "category": "All Students",
-  "female_pct_more_than": 0,
-  "female_pct_less_than": 1,
-  "male_pct_more_than": 0,
-  "male_pct_less_than": 1,
-  "black_pct_more_than": 0,
-  "black_pct_less_than": 1,
-  "asian_pct_more_than": 0,
-  "asian_pct_less_than": 1,
-  "white_pct_more_than": 0,
-  "white_pct_less_than": 1,
-  "other_pct_more_than": 0,
-  "other_pct_less_than": 1
+  "female_pct_at_least": 0,
+  "female_pct_at_most": 1,
+  "male_pct_at_least": 0,
+  "male_pct_at_most": 1,
+  "black_pct_at_least": 0,
+  "black_pct_at_most": 1,
+  "asian_pct_at_least": 0,
+  "asian_pct_at_most": 1,
+  "white_pct_at_least": 0,
+  "white_pct_at_most": 1,
+  "other_pct_at_least": 0,
+  "other_pct_at_most": 1
 }
 ```
 
