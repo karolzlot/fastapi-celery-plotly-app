@@ -55,10 +55,13 @@ def test_rest1_all_students(http_service):
     sleep(5)  # needed, because if too early chart won't be created despite status code 200
     status2 = 200
     data = {
-        "category": "All Students",
-        # "female_pct_more_than": 0.55
+        "category": "All Students"
         }
+
     response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
+
+    number_of_entries= len(response2.json()["SchoolsStatsEntries"])
+    # print(number_of_entries)
 
     status3 = 200
     for i in range(100): # wait up to 10s for chart to be ready
@@ -127,3 +130,34 @@ def test_rest3_empty_response(http_service):
 
     assert response.json() == expected_response
     assert response.status_code == status
+
+
+def test_rest4_all_zeros(http_service):
+
+    status = 200
+    data = {
+        "category": "All Students",
+        "female_pct_more_than": 0,
+        "female_pct_less_than": 0,
+        "male_pct_more_than": 0,
+        "male_pct_less_than": 0,
+        "black_pct_more_than": 0,
+        "black_pct_less_than": 0,
+        "asian_pct_more_than": 0,
+        "asian_pct_less_than": 0,
+        "white_pct_more_than": 0,
+        "white_pct_less_than": 0,
+        "other_pct_more_than": 0,
+        "other_pct_less_than": 0
+        }
+
+    response = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
+
+    expected_response={
+        "url": "",
+        "SchoolsStatsEntries": []
+        }
+
+    assert response.json() == expected_response
+    assert response.status_code == status
+
