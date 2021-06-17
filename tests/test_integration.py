@@ -44,9 +44,7 @@ def test_status_code_docs(http_service):
 
 
 
-
 def test_rest1_all_students(http_service):
-    sleep(1)
     status1 = 404
     for i in range(10): # wait up to 10s for server to be ready
         response1 = requests.get(http_service + "/charts/1") 
@@ -113,7 +111,6 @@ def test_rest2_all_filters(http_service):
 
 
 def test_rest3_empty_response(http_service):
-
     status = 200
     data = {
         "category": "Attend school outside district of residence",
