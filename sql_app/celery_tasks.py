@@ -81,6 +81,8 @@ def save_chart(filters_dict,id):
         fig.update_geos(fitbounds='locations')  # zoom on NYC
 
         fig['layout'].update(margin=dict(l=20,r=30,b=30,t=60))
+        fig.update_traces(marker_line_width=0.5)
+
 
         fig.add_scattergeo(
         geojson=nycmap,
@@ -92,7 +94,7 @@ def save_chart(filters_dict,id):
             ),
         featureidkey="properties.school_dist",
         mode = 'text') 
-
+        
         fig.write_image(file=path,width=960,height=540,scale=2)
 
 
