@@ -1,14 +1,21 @@
+from enum import Enum
 from typing import List, Optional
-
 
 from pydantic import BaseModel
 
 
+class StudentCategoryEnum(str, Enum):
+    all = 'All Students'
+    outside_residence = 'Attend school outside district of residence'
+    english_learners = 'English Language Learners'
+    poverty = 'Poverty'
+    temporary_housing = 'Reside in temporary housing'
+    disability = 'Students with Disabilities'
+
+
 
 class SchoolsStatsQuerySchema(BaseModel):
-
-
-    category: Optional[str]='All Students'
+    category: Optional[StudentCategoryEnum]=StudentCategoryEnum.all
     female_pct_more_than: Optional[float]
     female_pct_less_than: Optional[float]
     male_pct_more_than: Optional[float]
@@ -22,14 +29,12 @@ class SchoolsStatsQuerySchema(BaseModel):
     other_pct_more_than: Optional[float]
     other_pct_less_than: Optional[float]
 
-
     class Config:
         orm_mode = True
 
 
 
 class SchoolsStatsEntrySchema(BaseModel):
-
     id:int
 
     DBN: str
@@ -59,10 +64,8 @@ class SchoolsStatsEntrySchema(BaseModel):
 
 
 class SchoolsStatsResponse(BaseModel):
-
     url: Optional[str]
     SchoolsStatsEntries: List[SchoolsStatsEntrySchema]
-
 
     class Config:
         orm_mode = True
