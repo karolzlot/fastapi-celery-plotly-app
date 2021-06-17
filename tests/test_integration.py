@@ -61,7 +61,8 @@ def test_rest1_all_students(http_service):
     response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
 
     number_of_entries= len(response2.json()["SchoolsStatsEntries"])
-    # print(number_of_entries)
+    chart_url=response2.json()["url"]
+
 
     status3 = 200
     for i in range(100): # wait up to 10s for chart to be ready
@@ -70,6 +71,8 @@ def test_rest1_all_students(http_service):
             break
         sleep(0.1)
 
+    assert number_of_entries == 1152
+    assert chart_url == "/charts/1"
     assert response1.status_code == status1
     assert response2.status_code == status2
     assert response3.status_code == status3
@@ -101,6 +104,9 @@ def test_rest2_all_filters(http_service):
         }
     response2 = requests.post(http_service + "/schools/",data=json.dumps(data), headers=headers) 
 
+    number_of_entries= len(response2.json()["SchoolsStatsEntries"])
+    chart_url=response2.json()["url"]
+
     status3 = 200
     for i in range(100): # wait up to 10s for chart to be ready
         response3 = requests.get(http_service + "/charts/2") 
@@ -108,6 +114,8 @@ def test_rest2_all_filters(http_service):
             break
         sleep(0.1)
 
+    assert number_of_entries == 21
+    assert chart_url == "/charts/2"
     assert response1.status_code == status1
     assert response2.status_code == status2
     assert response3.status_code == status3
