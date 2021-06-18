@@ -79,11 +79,11 @@ def save_chart(filters_dict,id):
                                 range_color=[1.0,3.0],
                                 )
 
-        fig.update_geos(fitbounds='locations')  # zoom on NYC
+        fig.update_geos(fitbounds='geojson', resolution=50)  # zoom on NYC, increased resolution of map
 
         fig['layout'].update(margin=dict(l=20,r=30,b=30,t=60))
         fig.update_traces(marker_line_width=0.5)
-
+        
 
         fig.add_scattergeo(
         geojson=nycmap,
