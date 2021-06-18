@@ -117,10 +117,72 @@ I chose `POST` request type for `/school_entries/` because it creates chart, so 
 
 ```
 {
+  "category": "All Students",
+  "female_pct_at_least": 0.5
+}
+```
+![chart1](./img/example_at_least_50_pct_females.png)
+
+
+```
+{
+  "category": "All Students",
+  "black_pct_at_least": 0.6
+}
+```
+![chart2](./img/example_at_least_60_pct_black.png)
+
+
+```
+{
+  "category": "All Students",
+  "asian_pct_at_least": 0.4
+}
+```
+![chart2](./img/example_at_least_40_pct_asian.png)
+
+
+
+```
+{
   "category": "Students with Disabilities"
 }
 ```
 ![chart2](./img/example_students_with_disabilities.png)
 
 
+
+```
+{
+  "category": "English Language Learners"
+}
+```
+![chart2](./img/example_english_language_learners.png)
+
+
+
+```
+{
+  "category": "Poverty"
+}
+```
+![chart2](./img/example_poverty.png)
+
+
+
+```
+{
+  "category": "Reside in temporary housing"
+}
+```
+![chart2](./img/example_reside_in_temporary_housing.png)
+
+
+
+```
+{
+  "category": "Attend school outside district of residence"
+}
+```
+![chart2](./img/example_attend_school_outside_district_of_residence.png)
 
