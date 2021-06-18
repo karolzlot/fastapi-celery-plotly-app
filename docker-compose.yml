@@ -13,6 +13,7 @@ services:
     depends_on:
       - db
       - celery
+      - redis
   db:
     image: postgres:10-alpine
     env_file:
