@@ -41,7 +41,7 @@ def save_chart(filters_dict,id):
 
         import plotly.express as px
 
-        # read the neighborhood population data into a DataFrame and load the GeoJSON data
+        # load the GeoJSON with school districts polygons
         nycmap = json.load(open("School Districts.geojson"))
 
         path=f"/saved_charts/fig{str(id)}.png"
