@@ -1,15 +1,20 @@
 # Celery-FastAPI-Plotly demo app
 
-Description:
+## Description:
 
-This app provides API to get data and charts based on provided (or not) filters.
+This app is based on four docker services managed by docker-compose: PostgreSQL, redis, Celery and main Python-FastAPI webserver service.
 
+When main docker service is started and database is empty, bash script is executed which runs Celery task, which downloads data from New York open data server and puts them in database. Data contains grades of students in New York City.
+
+Then API client can make API request to get students data. Filters can be optionally applied. Additionally link to chart is provided in response. 
+
+Chart is not available immediately. It is generated in separate Celery task and then stored on Docker volume with its path stored in database. 
 
 
 Tested on Python 3.9.5
 
 
-## A. How to run app:
+## How to run app:
 1. Rename `.env.dev.example` to `.env.dev`. This file contains environmental variables.
 2. (Recommended) In `.env.dev` file at least change both `POSTGRES_PASSWORD` and `DB_PASS` to new password (the same password for both variables).
 3. Run 
@@ -56,7 +61,7 @@ Client doesn't need to send any of them, if not sent app will use default values
 }
 ```
 
-## B. How to run tests:
+## How to run tests:
 1. Create virtual env for this project.
 ```
 python -m venv .venv --prompt coding-challenge
