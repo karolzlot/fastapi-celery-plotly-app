@@ -8,7 +8,7 @@ When main docker service is started and database is empty, bash script is execut
 
 Then API client can make API request to get students data. Filters can be optionally applied. Additionally link to chart is provided in response. 
 
-Chart is not available immediately. It is generated in separate Celery task and then stored on Docker volume with its path stored in database. 
+Chart is not available immediately. It is generated in separate Celery task in a few seconds and then stored on Docker volume with its path stored in database. 
 
 
 Tested on Python 3.9.5
