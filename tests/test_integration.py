@@ -65,7 +65,7 @@ def test_rest1_all_students(http_service):
 
 
     status3 = 200
-    for i in range(100): # wait up to 10s for chart to be ready
+    for _ in range(100): # wait up to 10s for chart to be ready
         response3 = requests.get(http_service + "/charts/1") 
         if response3.status_code != 404: 
             break
@@ -108,7 +108,7 @@ def test_rest2_all_filters(http_service):
     chart_url=response2.json()["url"]
 
     status3 = 200
-    for i in range(100): # wait up to 10s for chart to be ready
+    for _ in range(100): # wait up to 10s for chart to be ready
         response3 = requests.get(http_service + "/charts/2") 
         if response3.status_code != 404: 
             break

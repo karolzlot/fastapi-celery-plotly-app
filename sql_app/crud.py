@@ -24,9 +24,7 @@ def add_chart(db: Session):
 
 def get_schools_filters_objects(filters: schemas.SchoolsStatsQuerySchema):
 
-    filters_objects=[]
-
-    filters_objects.append(models.SchoolsStatsEntry.Category == filters.category)
+    filters_objects = [models.SchoolsStatsEntry.Category == filters.category]
 
     if filters.female_pct_at_least is not None:
         filters_objects.append(models.SchoolsStatsEntry.Female_pct >= filters.female_pct_at_least)
